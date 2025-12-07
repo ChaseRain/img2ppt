@@ -1,0 +1,29 @@
+server:
+  addr: ":8080"
+  read_timeout_seconds: 30
+  write_timeout_seconds: 120
+
+log:
+  level: "info"
+  format: "json"
+
+http_client:
+  timeout_seconds: 60
+  max_retries: 2
+
+limiter:
+  max_concurrent: 10
+  rate_per_second: 5
+
+gemini:
+  api_key: "your-gemini-api-key"
+  model: "gemini-2.0-flash"
+
+image_gen:
+  api_key: "your-gemini-api-key"
+  model: "gemini-2.0-flash-preview-image-generation"
+
+storage:
+  type: "local"
+  base_path: "./output"
+  base_url: "/files"

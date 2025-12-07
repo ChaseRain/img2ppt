@@ -1,0 +1,21 @@
+# Binaries
+bin/
+*.exe
+
+# Output files
+output/
+*.pptx
+
+# Config with secrets
+config.yaml
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+
+# Go
+vendor/
