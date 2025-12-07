@@ -13,10 +13,14 @@ type Limiter struct {
 	mu          sync.Mutex
 }
 
-func New(maxConcurrent, ratePerSecond int) *Limiter {
+func New(maxConcurrent int, ratePerSecond float64) *Limiter {
+	burst := int(ratePerSecond)
+	if burst < 1 {
+		burst = 1
+	}
 	return &Limiter{
 		semaphore:   make(chan struct{}, maxConcurrent),
-		rateLimiter: rate.NewLimiter(rate.Limit(ratePerSecond), ratePerSecond),
+		rateLimiter: rate.NewLimiter(rate.Limit(ratePerSecond), burst),
 	}
 }
 

@@ -33,8 +33,8 @@ type HTTPClientConfig struct {
 }
 
 type LimiterConfig struct {
-	MaxConcurrent int `yaml:"max_concurrent"`
-	RatePerSecond int `yaml:"rate_per_second"`
+	MaxConcurrent int     `yaml:"max_concurrent"`
+	RatePerSecond float64 `yaml:"rate_per_second"`
 }
 
 type GeminiConfig struct {
